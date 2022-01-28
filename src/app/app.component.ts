@@ -1,10 +1,23 @@
 import { Component } from '@angular/core';
+import { Student } from './models';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'test-app';
+  students: Student[] = [
+    { id: 1, name: 'Ivan' },
+    { id: 2, name: 'Bill' },
+    { id: 3, name: 'John' },
+    { id: 5, name: 'Petr' },
+  ];
+
+  addName(name: string) {
+    this.students.push({
+      name: name,
+      id: this.students.length + 2,
+    });
+  }
 }

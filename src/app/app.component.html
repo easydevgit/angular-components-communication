@@ -1,1 +1,12 @@
-123
+<div class="container mt-6">
+  <app-input (outEnterName)="addName($event)"></app-input>
+
+  <div class="students_list mt-6">
+    <h2 class="subtitle">Список студентов:</h2>
+    <ul class="list">
+      <li class='list-item mb-1 mt-1' *ngFor="let student of students">
+        <app-student [student]="student"></app-student>
+      </li>
+    </ul>
+  </div>
+</div>
