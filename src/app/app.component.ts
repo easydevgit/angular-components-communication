@@ -11,13 +11,13 @@ export class AppComponent {
     { id: 1, name: 'Ivan' },
     { id: 2, name: 'Bill' },
     { id: 3, name: 'John' },
-    { id: 5, name: 'Petr' },
+    { id: 4, name: 'Petr' },
   ];
 
   addName(name: string) {
     this.students.push({
       name: name,
-      id: this.students.length + 2,
+      id: this.students.length + 1,
     });
   }
 }
