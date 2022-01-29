@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Student } from './models';
 import { StudentService } from './services/student.service';
 
@@ -7,15 +8,16 @@ import { StudentService } from './services/student.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  students: Student[];
+export class AppComponent implements OnInit {
+  students$: Observable<Student[]>;
 
-  constructor(private studentService: StudentService) {
-    this.students = studentService.getStudents();
+  constructor(private studentService: StudentService) {}
+
+  ngOnInit(): void {
+    this.students$ = this.studentService.students;
   }
 
   addName(name: string) {
     this.studentService.addName(name);
-    this.students = this.studentService.getStudents();
   }
 }
