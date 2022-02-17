@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Student } from './models';
-import { StudentService } from './services/student.service';
+import { StudentComponent } from './student/student.component';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +7,13 @@ import { StudentService } from './services/student.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  students$: Observable<Student[]>;
-
-  constructor(private studentService: StudentService) {}
+  
+  constructor() {}
 
   ngOnInit(): void {
-    this.students$ = this.studentService.students;
   }
 
-  addName(name: string) {
-    this.studentService.addName(name);
+  addName(name: string, student: StudentComponent) {
+    student.addName(name);
   }
 }
